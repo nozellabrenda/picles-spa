@@ -28,7 +28,7 @@ export function Button({
     }
 
     return  (
-    <button  className={styles.buttonBase} { ...rest}>
+    <button  className={buttonClass} { ...rest}>
     {children}
     </button>
     )
