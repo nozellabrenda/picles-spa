@@ -5,15 +5,15 @@ export interface IPet {
     size: string
     gender: string
     bio: string
-    photo: string    
-}
-
-export type GetPetsRequest = Partial<Pick<IPet, 'type' |'size' | 'gender'>> & {
+    photo: string
+  }
+  
+  export type GetPetsRequest = Partial<Pick<IPet, 'type' | 'size' | 'gender'>> & {
     page?: number
-}
-
-export type GetPetsResponse = {
+  }
+  
+  export type GetPetsResponse = {
     items: IPet[]
     totalPages: number
     currentPage: number
-}
+  }
