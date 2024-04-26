@@ -1,49 +1,19 @@
-import { createBrowserRouter } from "react-router-dom";
-import { Home } from './pages/Home'
-import { Pets } from "./pages/Pets";
-import { PetDetails } from "./pages/PetDetails/PetDetails";
-import { PetList } from "./pages/Admin/PetList/PetList";
-import { Shelter } from "./pages/Admin/Shelter/Shelter";
-import { AuthHOC } from "./components/common/AuthHOC/AuthHOC";
+import { Link } from 'react-router-dom'
+import { Button } from '../../../components/common/Button'
+import { Panel } from '../../../components/layout/Panel'
 
-const router = createBrowserRouter([
-    {
-        path: '/',
-        element: <Home />,
-    },
-    {
-        path: '/pets',
-        children: [
-            {
-                index: true,
-                element: <Pets />
-            },
-            {
-                path: 'pets/:id',
-                element: <PetDetails />,
-            },
-        ],
-    },
-    {
-        path: '/admin',
-        children: [
-            {
-                index: true,
-                element: <Shelter />
-            },
-            {
-                path: '/admin/pets',
-                element: <AuthHOC />,
-                children: [
-                    {
-                        index: true,
-                        element: <PetList />
-                    },
-                ],
-            }
-        ],
+import styles from './PetList.module.css'
 
-    },
-])
-
-export default router
+export function PetList() {
+  return (
+    <Panel>
+      <div className={styles.container}>
+        <div className={styles.buttonNewPet}>
+          <Link to="/admin/pets/new">
+            <Button>Novo pet</Button>
+          </Link>
+        </div>
+      </div>
+    </Panel>
+  )
+}
